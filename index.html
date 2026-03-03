@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygon Academy | Akademi Pendidikan Inklusif di Mojokerto</title>
+    <meta name="description" content="Polygon Academy adalah lembaga pendidikan inklusif di Kota Mojokerto, Jawa Timur. Belajar Coding, Bisnis, Hukum, dan lainnya tanpa batasan usia. Inklusif, Terbuka, Memajukan Bangsa.">
+    <meta name="keywords" content="Akademi, Polygon Academy, Kursus Mojokerto, Pendidikan Inklusif, Bootcamp IT, Manajemen Bisnis Mojokerto">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#1E3A8A',    /* Deep Blue */
+                            lightBlue: '#3B82F6', /* Accent Blue */
+                            yellow: '#FBBF24',  /* Vibrant Yellow */
+                            darkYellow: '#D97706' /* Darker Yellow for hover */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles for symmetry and clean layout */
+        .section-padding { padding: 5rem 1.5rem; }
+        .heading-symmetric { text-align: center; margin-bottom: 3rem; }
+        .heading-symmetric h2 { font-size: 2.25rem; font-weight: 800; color: #1E3A8A; margin-bottom: 1rem; }
+        .heading-symmetric .divider { width: 4rem; height: 4px; background-color: #FBBF24; margin: 0 auto; border-radius: 2px;}
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased selection:bg-brand-yellow selection:text-brand-blue">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mr-3">
+                        <!-- Geometric Polygon (Hexagon) -->
+                        <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#1E3A8A" />
+                        <!-- Rough "A" Silhouette inside -->
+                        <path d="M50 20 L30 80 L40 80 L45 65 L55 65 L60 80 L70 80 Z" fill="#FBBF24" />
+                        <polygon points="50,35 47,55 53,55" fill="#1E3A8A" />
+                    </svg>
+                    <span class="font-bold text-2xl tracking-tight text-brand-blue">Polygon<span class="text-brand-yellow">Academy</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#program" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">Program</a>
+                    <a href="#biaya" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">Biaya</a>
+                    <a href="#galeri" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">Galeri</a>
+                    <a href="#blog" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">Blog</a>
+                    <a href="#prestasi" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">Prestasi</a>
+                    <a href="mailto:humas@polygonacademy.my.id" class="bg-brand-yellow hover:bg-brand-darkYellow text-brand-blue font-bold py-2 px-6 rounded-full transition-colors shadow-lg shadow-brand-yellow/30">
+                        Hubungi Kami
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-blue focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#program" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Program</a>
+                <a href="#biaya" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Biaya</a>
+                <a href="#galeri" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Galeri</a>
+                <a href="#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Blog</a>
+                <a href="#prestasi" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Prestasi</a>
+                <a href="mailto:humas@polygonacademy.my.id" class="block px-3 py-2 mt-4 text-center text-base font-bold rounded-md bg-brand-yellow text-brand-blue">Hubungi Kami</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-blue overflow-hidden">
+        <!-- Abstract Symmetrical Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-lightBlue rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-yellow rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-yellow text-brand-blue font-bold text-sm tracking-wider mb-6 uppercase shadow-md">
+                Inklusif, Terbuka, Memajukan Bangsa
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white tracking-tight mb-8 leading-tight">
+                Pendidikan Tanpa Batas <br class="hidden md:block" />
+                <span class="text-brand-yellow">Untuk Semua Kalangan</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-blue-100 mb-10 leading-relaxed font-light">
+                Polygon Academy mendobrak batasan usia dan pendidikan. Visi kami adalah membentuk pola pikir masyarakat Indonesia melalui akses pembelajaran keahlian yang serius, berkualitas, dan terjangkau.
+            </p>
+            <div class="flex justify-center gap-4 flex-col sm:flex-row">
+                <a href="#program" class="bg-brand-yellow hover:bg-white text-brand-blue font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-xl text-lg">
+                    Lihat Program Kami
+                </a>
+                <a href="#biaya" class="bg-transparent border-2 border-brand-yellow text-brand-yellow hover:bg-brand-yellow hover:text-brand-blue font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:-translate-y-1 text-lg">
+                    Cek Biaya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Studi Section -->
+    <section id="program" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="heading-symmetric">
+                <h2 class="text-brand-blue">Bidang Keahlian</h2>
+                <div class="divider"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">Kurikulum intensif dan terstruktur untuk mempersiapkan karir profesional Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Program 1 -->
+                <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Coding & IT</h3>
+                    <p class="text-gray-600 text-sm">Pemrograman web, aplikasi, dan sistem informasi modern.</p>
+                </div>
+                <!-- Program 2 -->
+                <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Manajemen Bisnis</h3>
+                    <p class="text-gray-600 text-sm">Strategi operasional, kepemimpinan, dan pengembangan bisnis.</p>
+                </div>
+                <!-- Program 3 -->
+                <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ilmu Hukum</h3>
+                    <p class="text-gray-600 text-sm">Dasar hukum sipil, pidana, dan implementasi hukum bisnis.</p>
+                </div>
+                <!-- Program 4 -->
+                <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Administrasi</h3>
+                    <p class="text-gray-600 text-sm">Keterampilan administratif dan efisiensi ruang kerja.</p>
+                </div>
+                <!-- Program 5 -->
+                <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Perpajakan</h3>
+                    <p class="text-gray-600 text-sm">Perhitungan, pelaporan pajak, dan regulasi keuangan negara.</p>
+                </div>
+                <!-- Program 6 -->
+                <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Akuntansi</h3>
+                    <p class="text-gray-600 text-sm">Laporan keuangan, audit, dan dasar-dasar akuntansi publik.</p>
+                </div>
+                 <!-- Program 7 -->
+                 <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl group">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sosiologi</h3>
+                    <p class="text-gray-600 text-sm">Analisa dinamika sosial masyarakat dan perilaku kultural.</p>
+                </div>
+                 <!-- Program 8 (Other) -->
+                 <div class="bg-brand-blue rounded-2xl p-6 text-center border border-brand-blue flex flex-col justify-center items-center group">
+                    <h3 class="text-xl font-bold text-white mb-2">Program Lainnya?</h3>
+                    <p class="text-blue-200 text-sm mb-4">Kami terus berekspansi untuk kebutuhan Anda.</p>
+                    <a href="mailto:humas@polygonacademy.my.id" class="inline-block mt-auto bg-brand-yellow text-brand-blue font-semibold px-4 py-2 rounded-lg hover:bg-white transition-colors text-sm">
+                        Request di sini
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-sm text-gray-500">Ingin program studi lain yang belum ada di daftar? <a href="mailto:humas@polygonacademy.my.id" class="text-brand-blue font-semibold hover:underline">Request di sini</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="heading-symmetric">
+                <h2 class="text-brand-blue">Galeri Kegiatan</h2>
+                <div class="divider"></div>
+            </div>
+            <!-- Clean Image Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+                <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600" alt="Siswa sedang belajar bersama di ruang kelas" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&q=80&w=600" alt="Diskusi kelompok di Polygon Academy" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600" alt="Mentoring coding di akademi" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600" alt="Fasilitas lab komputer Polygon Academy" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600" alt="Sesi presentasi manajemen bisnis" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600" alt="Komunitas belajar inklusif" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biaya Pendidikan (Pricing) Section -->
+    <section id="biaya" class="section-padding bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="heading-symmetric">
+                <h2 class="text-brand-blue">Opsi Biaya Pendidikan</h2>
+                <div class="divider"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">Pendidikan berkualitas tidak harus mahal. Pilih paket belajar (Affordable Pricing) yang sesuai dengan ritme Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mt-12">
+                <!-- Starter -->
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 text-center hover:shadow-xl transition-shadow">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Polygon Starter</h3>
+                    <p class="text-sm font-semibold text-brand-blue mb-6">Durasi: 1 Bulan</p>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-6">Rp350<span class="text-xl text-gray-500 font-medium">.000</span></div>
+                    <ul class="text-left space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Akses Modul Dasar</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> E-Sertifikat Partisipasi</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Akses Komunitas Belajar</li>
+                    </ul>
+                    <a href="mailto:humas@polygonacademy.my.id?subject=Daftar Polygon Starter" class="block w-full py-3 px-4 bg-white border-2 border-brand-blue text-brand-blue font-bold rounded-xl hover:bg-brand-blue hover:text-white transition-colors">Pilih Starter</a>
+                </div>
+
+                <!-- Mastery (Highlighted) -->
+                <div class="bg-brand-blue rounded-2xl p-8 border border-brand-blue text-center shadow-2xl transform md:-translate-y-4">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-brand-yellow text-brand-blue text-xs font-bold uppercase py-1 px-3 rounded-full tracking-wider">Paling Populer</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Polygon Mastery</h3>
+                    <p class="text-sm font-semibold text-blue-200 mb-6">Durasi: 3 Bulan</p>
+                    <div class="text-4xl font-extrabold text-white mb-6">Rp950<span class="text-xl text-blue-200 font-medium">.000</span></div>
+                    <ul class="text-left space-y-4 mb-8 text-blue-100">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Modul Dasar & Lanjutan</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Pembuatan Portofolio Project</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Mentoring Intensif</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sertifikat Penyelesaian</li>
+                    </ul>
+                    <a href="mailto:humas@polygonacademy.my.id?subject=Daftar Polygon Mastery" class="block w-full py-3 px-4 bg-brand-yellow text-brand-blue font-bold rounded-xl hover:bg-white transition-colors">Pilih Mastery</a>
+                </div>
+
+                <!-- Expert -->
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 text-center hover:shadow-xl transition-shadow">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Polygon Expert</h3>
+                    <p class="text-sm font-semibold text-brand-blue mb-6">Durasi: 6 Bulan</p>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-6">Rp1.750<span class="text-xl text-gray-500 font-medium">.000</span></div>
+                    <ul class="text-left space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Semua Fitur Mastery</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sertifikat Kompetensi Resmi</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Bantuan Penyaluran Kerja</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-brand-yellow mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sesi Konsultasi Privat</li>
+                    </ul>
+                    <a href="mailto:humas@polygonacademy.my.id?subject=Daftar Polygon Expert" class="block w-full py-3 px-4 bg-white border-2 border-brand-blue text-brand-blue font-bold rounded-xl hover:bg-brand-blue hover:text-white transition-colors">Pilih Expert</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Section -->
+    <section id="prestasi" class="section-padding bg-gray-50 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="heading-symmetric">
+                <h2 class="text-brand-blue">Prestasi & Alumni</h2>
+                <div class="divider"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">Bukti nyata dedikasi dan kualitas metode pembelajaran kami.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                <!-- Card Prestasi 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 text-center p-6">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300" alt="Budi Santoso - Prestasi Coding" class="w-24 h-24 object-cover rounded-full mx-auto mb-4 border-4 border-brand-yellow">
+                    <h3 class="font-bold text-lg text-gray-900">Budi Santoso</h3>
+                    <p class="text-brand-blue text-sm font-semibold mb-3">Juara 1 Hackathon Nasional 2025</p>
+                    <p class="text-gray-600 text-sm">Alumni Program Coding & IT. Memenangkan kompetisi inovasi aplikasi pelayanan masyarakat.</p>
+                </div>
+                <!-- Card Prestasi 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 text-center p-6">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300" alt="Siti Aminah - Prestasi Bisnis" class="w-24 h-24 object-cover rounded-full mx-auto mb-4 border-4 border-brand-yellow">
+                    <h3 class="font-bold text-lg text-gray-900">Siti Aminah</h3>
+                    <p class="text-brand-blue text-sm font-semibold mb-3">Top 10 Pengusaha Muda Mojokerto</p>
+                    <p class="text-gray-600 text-sm">Alumni Manajemen Bisnis. Sukses mendirikan startup logistik berbasis teknologi.</p>
+                </div>
+                <!-- Card Prestasi 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 text-center p-6">
+                    <div class="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 border-4 border-brand-yellow flex items-center justify-center">
+                        <svg class="w-10 h-10 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900">Sertifikasi BNSP</h3>
+                    <p class="text-brand-blue text-sm font-semibold mb-3">Tingkat Kelulusan 98%</p>
+                    <p class="text-gray-600 text-sm">Mayoritas siswa program Expert kami langsung tersertifikasi oleh badan kompetensi nasional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog & Artikel Section -->
+    <section id="blog" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="heading-symmetric">
+                <h2 class="text-brand-blue">Artikel & Wawasan</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                <!-- Blog 1 -->
+                <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Masa depan karir di bidang teknologi IT" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="bg-blue-100 text-brand-blue text-xs font-semibold px-2 py-1 rounded">#Tech</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded">#Career</span>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-900 mb-2 hover:text-brand-blue cursor-pointer">Peluang Karir IT Tanpa Gelar Sarjana di 2026</h3>
+                        <p class="text-gray-600 text-sm mb-4">Industri teknologi semakin terbuka. Portofolio dan skill praktis kini jauh lebih berharga dibandingkan ijazah formal...</p>
+                        <a href="#" class="text-brand-blue font-semibold text-sm hover:underline">Baca selengkapnya &rarr;</a>
+                    </div>
+                </article>
+                
+                <!-- Blog 2 -->
+                <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Strategi dasar bisnis untuk pemula" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="bg-blue-100 text-brand-blue text-xs font-semibold px-2 py-1 rounded">#Business</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">#Strategy</span>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-900 mb-2 hover:text-brand-blue cursor-pointer">5 Pilar Utama Mengelola Bisnis untuk Pemula</h3>
+                        <p class="text-gray-600 text-sm mb-4">Banyak bisnis gagal di tahun pertama karena manajemen yang buruk. Pelajari pilar utamanya dari modul dasar kami...</p>
+                        <a href="#" class="text-brand-blue font-semibold text-sm hover:underline">Baca selengkapnya &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Blog 3 -->
+                <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600" alt="Pengetahuan hukum untuk bisnis kecil" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2 py-1 rounded">#Law</span>
+                            <span class="bg-blue-100 text-brand-blue text-xs font-semibold px-2 py-1 rounded">#Business</span>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-900 mb-2 hover:text-brand-blue cursor-pointer">Aspek Hukum Penting bagi Pelaku UMKM</h3>
+                        <p class="text-gray-600 text-sm mb-4">Jangan tunggu sengketa terjadi. Pahami dasar hukum legalitas usaha dan kontrak kerjasama secara sederhana...</p>
+                        <a href="#" class="text-brand-blue font-semibold text-sm hover:underline">Baca selengkapnya &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue text-blue-100 pt-16 pb-8 border-t-8 border-brand-yellow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                            <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#FFFFFF" />
+                            <path d="M50 20 L30 80 L40 80 L45 65 L55 65 L60 80 L70 80 Z" fill="#FBBF24" />
+                            <polygon points="50,35 47,55 53,55" fill="#FFFFFF" />
+                        </svg>
+                        <span class="font-bold text-xl tracking-tight text-white">Polygon<span class="text-brand-yellow">Academy</span></span>
+                    </div>
+                    <p class="text-sm text-blue-200 mb-4 leading-relaxed">
+                        Lembaga pendidikan inklusif yang memajukan pola pikir masyarakat Indonesia melalui akses pendidikan terbuka untuk semua kalangan.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/polygonacademy.id" target="_blank" class="text-blue-300 hover:text-brand-yellow transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <span class="text-blue-300 text-sm mt-0.5">@polygonacademy.id</span>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Navigasi</h4>
+                    <ul class="space-y-2 text-sm text-blue-200">
+                        <li><a href="#program" class="hover:text-brand-yellow transition-colors">Program Studi</a></li>
+                        <li><a href="#biaya" class="hover:text-brand-yellow transition-colors">Biaya Pendidikan</a></li>
+                        <li><a href="#galeri" class="hover:text-brand-yellow transition-colors">Galeri</a></li>
+                        <li><a href="#blog" class="hover:text-brand-yellow transition-colors">Blog & Artikel</a></li>
+                        <li><a href="#prestasi" class="hover:text-brand-yellow transition-colors">Prestasi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Kontak Kami</h4>
+                    <ul class="space-y-3 text-sm text-blue-200">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-brand-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <a href="mailto:humas@polygonacademy.my.id" class="hover:text-brand-yellow break-all">humas@polygonacademy.my.id</a>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-brand-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Kota Mojokerto,<br>Jawa Timur, Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Keamanan & Regulasi -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Layanan Pengaduan</h4>
+                    <p class="text-sm text-blue-200 mb-2">Laporkan penyalahgunaan, isu keamanan, atau keluhan terkait operasional akademi:</p>
+                    <a href="mailto:abuse@polygonacademy.my.id" class="inline-flex items-center text-sm font-semibold text-brand-yellow hover:text-white transition-colors">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        abuse@polygonacademy.my.id
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-blue-300">
+                <p>&copy; 2026 Polygon Academy. All Rights Reserved.</p>
+                <p class="mt-2 md:mt-0">Didesain dengan ❤️ untuk pendidikan Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Mobile Menu -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconPath = document.getElementById('menu-icon-path');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            
+            // Toggle icon from hamburger to X
+            if (menu.classList.contains('hidden')) {
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        // Close menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+    </script>
+</body>
+</html>
+
